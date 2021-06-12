@@ -1,0 +1,22 @@
+---
+- name: create users
+  hosts: all
+  vars:
+    user:
+      - Alice
+      - Bob
+      - Carol
+  vars_files:
+    - vars/passwords.yml
+  tasks:
+    - name: create users
+      user:
+        name: "{{ item.lower() }}"
+        password: "{{ users[item.lower()].password | password_hash('sha512')}}"
+        home: "/home/{{ item.lower() }}"
+        create_home: yes
+        state: present
+        update_password: on_create
+      with_items:
+        - "{{ user }}"
+...

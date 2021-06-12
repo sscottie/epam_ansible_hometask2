@@ -1,0 +1,13 @@
+users:
+  alice:
+    username: alice
+    homedir: /home/alice
+    email: alice@example.com
+  bob:
+    username: bob
+    homedir: /home/bob
+    email: bob@example.com
+  carol:
+    username: carol
+    homedir: /home/carol
+    email: carol@example.com
