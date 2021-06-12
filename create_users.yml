@@ -14,6 +14,7 @@
         name: "{{ item.lower() }}"
         password: "{{ users[item.lower()].password | password_hash('sha512')}}"
         home: "/home/{{ item.lower() }}"
+        comment: "{{ item.lower() }}@example.com"
         create_home: yes
         state: present
         update_password: on_create
